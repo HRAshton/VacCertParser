@@ -20,7 +20,17 @@ namespace VacCertParser.Console
         private static void WriteResult(VacCertDataModel result, string outFile)
         {
             var sb = new StringBuilder();
-            sb.AppendLine();
+            sb.AppendLine(result.LastName);
+            sb.AppendLine(result.FirstName);
+            sb.AppendLine(result.MiddleName);
+            sb.AppendLine(result.Birthday);
+            sb.AppendLine(result.Sex);
+            sb.AppendLine(result.Passport);
+            sb.AppendLine(result.LastVaccinationDate);
+            sb.AppendLine(result.LastVaccineName);
+
+            var textToWrite = sb.ToString();
+            File.WriteAllText(outFile, textToWrite, Encoding.GetEncoding("windows-1251"));
         }
     }
 }
