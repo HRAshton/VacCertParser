@@ -18,6 +18,11 @@ namespace VacCertParser.Parser
         {
             var pdfParserResult = PdfParser.Parse(fileContent);
 
+            if (pdfParserResult.Length == 0)
+            {
+                return new VacCertDataModel();
+            }
+            
             var data = new VacCertDataModel();
             ParsePersonalData(pdfParserResult, data);
             ParseDocumentData(pdfParserResult, data);
